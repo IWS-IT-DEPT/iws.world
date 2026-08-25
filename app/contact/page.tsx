@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get a quote or ask a question — contact IWS about warehousing, Foreign Trade Zone services, or logistics.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

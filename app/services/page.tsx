@@ -3,17 +3,21 @@ import Image from "next/image";
 import CtaBand from "@/components/CtaBand";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
+import StructuredData from "@/components/StructuredData";
 import { services } from "@/lib/data";
+import { servicesJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Warehousing, Foreign Trade Zone services, transportation, and manufacturing supply integration from IWS.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <StructuredData data={servicesJsonLd()} />
       <section className="relative overflow-hidden bg-iws-charcoal">
         <div className="absolute inset-0">
           <Image

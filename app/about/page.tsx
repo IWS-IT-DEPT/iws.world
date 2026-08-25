@@ -8,13 +8,14 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "IWS is a full-service warehousing and Foreign Trade Zone provider serving large industrial and manufacturing clients across the Gulf Coast.",
+  alternates: { canonical: "/about" },
 };
 
 const pillars = [
   {
     title: "Warehousing at scale",
     description:
-      "Five facilities across Alabama, Florida, and Texas give us the space and dock capacity to handle industrial-scale freight, from bulk raw materials to oversized components.",
+      "Six facilities across Alabama, Florida, and Texas give us the space and dock capacity to handle industrial-scale freight, from bulk raw materials to oversized components.",
   },
   {
     title: "Foreign Trade Zone expertise",

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Careers",
   description:
     "Join the IWS team across our warehouse and logistics operations in Mobile, AL, Pensacola, FL, and Houston, TX.",
+  alternates: { canonical: "/careers" },
 };
 
 const reasons = [

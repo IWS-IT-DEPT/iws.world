@@ -148,7 +148,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Where we are"
               title="Facilities across the Gulf Coast"
-              description="Five facilities across three states, positioned near the ports and manufacturers we serve."
+              description="Six facilities across three states, positioned near the ports and manufacturers we serve."
             />
             <Link
               href="/locations"
