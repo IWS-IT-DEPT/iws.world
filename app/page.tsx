@@ -1,69 +1,189 @@
 import Image from "next/image";
+import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
+import LocationCard from "@/components/LocationCard";
+import SectionHeading from "@/components/SectionHeading";
+import ServiceCard from "@/components/ServiceCard";
+import { locations, services, siteConfig } from "@/lib/data";
+
+const flow = [
+  {
+    step: "01",
+    title: "Port receiving",
+    description:
+      "Raw materials and bulk shipments arrive from the port and are received directly into our warehouses.",
+  },
+  {
+    step: "02",
+    title: "Secure storage",
+    description:
+      "Materials and components are staged and stored across our Gulf Coast facilities, ready when production needs them.",
+  },
+  {
+    step: "03",
+    title: "Integrated delivery",
+    description:
+      "Rolling Green Transportation, our sister trucking company, and trusted third-party carriers move freight to your production line on schedule.",
+  },
+  {
+    step: "04",
+    title: "Finished goods",
+    description:
+      "Completed products come back into our network for storage and outbound distribution to their next destination.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="relative overflow-hidden bg-iws-charcoal">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/warehouse-doors.jpg"
+            alt="IWS warehouse loading dock doors"
+            fill
+            priority
+            className="object-cover opacity-40"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-iws-charcoal via-iws-charcoal/90 to-iws-charcoal/50" />
+        </div>
+        <div className="container-page relative py-28 sm:py-36">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-iws-green">
+            Warehousing &middot; Foreign Trade Zone &middot; Logistics
           </p>
+          <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Full-service warehousing built for industrial supply chains.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            IWS stores, manages, and moves raw materials, components, and
+            finished goods for large industrial and manufacturing clients —
+            with Foreign Trade Zone capabilities and facilities in Mobile,
+            AL, Pensacola, FL, and Houston, TX.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="rounded-full bg-iws-green px-7 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-iws-green-dark"
+            >
+              Get a Quote
+            </Link>
+            <Link
+              href="/services"
+              className="rounded-full border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Explore Our Services
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="What we do"
+            title="Warehousing, FTZ, and logistics under one roof"
+            description="From port to production floor to finished goods, IWS handles the storage and movement in between."
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-iws-sand py-20 sm:py-28">
+        <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              eyebrow="How we work"
+              title="Built to integrate into your supply chain"
+              description="We work directly with ports and manufacturing sites to keep materials moving — able to plug into any manufacturing storage or component supply process."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <ol className="mt-10 space-y-8">
+              {flow.map((item) => (
+                <li key={item.step} className="flex gap-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-iws-green/10 text-sm font-bold text-iws-green-dark">
+                    {item.step}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-iws-charcoal">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-iws-charcoal/70">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="relative h-64 overflow-hidden rounded-2xl sm:h-80">
+              <Image
+                src="/images/container-dock.jpg"
+                alt="Shipping container at a warehouse dock door"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 25vw, 50vw"
+              />
+            </div>
+            <div className="relative mt-8 h-64 overflow-hidden rounded-2xl sm:h-80">
+              <Image
+                src="/images/crates-flatbed.jpg"
+                alt="Crated freight staged on a flatbed trailer inside an IWS warehouse"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 25vw, 50vw"
+              />
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="container-page">
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+            <SectionHeading
+              eyebrow="Where we are"
+              title="Facilities across the Gulf Coast"
+              description="Five facilities across three states, positioned near the ports and manufacturers we serve."
+            />
+            <Link
+              href="/locations"
+              className="shrink-0 text-sm font-semibold text-iws-blue hover:text-iws-blue-dark"
+            >
+              View all locations →
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {locations.map((location) => (
+              <LocationCard key={location.id} location={location} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-iws-charcoal py-20 sm:py-24">
+        <div className="container-page text-center">
+          <SectionHeading
+            align="center"
+            light
+            eyebrow="Careers"
+            title="Join a team that keeps industry moving"
+            description="We're always looking for reliable, hands-on people across our warehouse and logistics operations."
+          />
+          <Link
+            href="/careers"
+            className="mt-8 inline-block rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-iws-charcoal shadow-sm transition-colors hover:bg-white/90"
+          >
+            View Careers at {siteConfig.name}
+          </Link>
+        </div>
+      </section>
+
+      <CtaBand />
+    </>
   );
 }
