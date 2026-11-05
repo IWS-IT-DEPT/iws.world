@@ -1,9 +1,10 @@
 import type { Location } from "@/lib/data";
 import { mapHref, siteConfig } from "@/lib/data";
+import ArrowIcon from "@/components/ArrowIcon";
 
 export default function LocationCard({ location }: { location: Location }) {
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-iws-border bg-white p-7 shadow-sm">
+    <div className="card-lift reveal flex h-full flex-col rounded-2xl border border-iws-border bg-white p-7 shadow-sm">
       <p className="text-xs font-semibold uppercase tracking-wide text-iws-green-dark">
         {location.city}, {location.state}
       </p>
@@ -23,9 +24,9 @@ export default function LocationCard({ location }: { location: Location }) {
           href={mapHref(location.mapQuery)}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-iws-blue hover:text-iws-blue-dark"
+          className="group inline-flex items-center gap-2 text-iws-blue hover:text-iws-blue-dark"
         >
-          Get Directions ↗
+          Get Directions <ArrowIcon direction="up-right" />
         </a>
         <a href={siteConfig.phoneHref} className="text-iws-charcoal/70 hover:text-iws-charcoal">
           {siteConfig.phone}

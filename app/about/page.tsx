@@ -37,7 +37,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="border-b border-iws-border bg-iws-sand py-20 sm:py-28">
-        <div className="container-page">
+        <div className="hero-rise container-page">
           <SectionHeading
             as="h1"
             eyebrow="About IWS"
@@ -88,7 +88,7 @@ export default function AboutPage() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="rounded-2xl border border-iws-border bg-white p-7 shadow-sm"
+                className="card-lift reveal rounded-2xl border border-iws-border bg-white p-7 shadow-sm"
               >
                 <h3 className="text-lg font-bold text-iws-charcoal">
                   {pillar.title}

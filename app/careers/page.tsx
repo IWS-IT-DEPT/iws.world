@@ -39,12 +39,12 @@ export default function CareersPage() {
             alt="IWS warehouse loading dock"
             fill
             priority
-            className="object-cover opacity-30"
+            className="hero-settle object-cover opacity-30"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-iws-charcoal via-iws-charcoal/90 to-iws-charcoal/60" />
         </div>
-        <div className="container-page relative py-20 sm:py-28">
+        <div className="hero-rise container-page relative py-20 sm:py-28">
           <SectionHeading
             as="h1"
             light
@@ -61,7 +61,7 @@ export default function CareersPage() {
             {reasons.map((reason) => (
               <div
                 key={reason.title}
-                className="rounded-2xl border border-iws-border bg-white p-7 shadow-sm"
+                className="card-lift reveal rounded-2xl border border-iws-border bg-white p-7 shadow-sm"
               >
                 <h3 className="text-lg font-bold text-iws-charcoal">
                   {reason.title}

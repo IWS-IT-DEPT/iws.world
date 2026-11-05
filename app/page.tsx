@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ArrowIcon from "@/components/ArrowIcon";
 import CtaBand from "@/components/CtaBand";
 import ServiceAreaCard from "@/components/ServiceAreaCard";
 import SectionHeading from "@/components/SectionHeading";
@@ -44,12 +45,12 @@ export default function Home() {
             alt="IWS warehouse loading dock doors"
             fill
             priority
-            className="object-cover opacity-40"
+            className="hero-settle object-cover opacity-40"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-iws-charcoal via-iws-charcoal/90 to-iws-charcoal/50" />
         </div>
-        <div className="container-page relative py-28 sm:py-36">
+        <div className="hero-rise container-page relative py-28 sm:py-36">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-iws-green">
             International Warehouse &amp; Shipping
           </p>
@@ -65,13 +66,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="rounded-full bg-iws-green px-7 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-iws-green-dark"
+              className="rounded-full bg-iws-green px-7 py-3.5 text-center text-sm font-semibold text-white shadow-sm btn-soft hover:bg-iws-green-dark"
             >
               Get a Quote
             </Link>
             <Link
               href="/services"
-              className="rounded-full border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="rounded-full border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-white btn-soft hover:bg-white/10"
             >
               Explore Our Services
             </Link>
@@ -93,12 +94,12 @@ export default function Home() {
           </div>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
             {servicePages.map((page) => (
-              <Link key={page.slug} href={`/services/${page.slug}`} className="text-iws-blue hover:text-iws-blue-dark">
-                {page.eyebrow} →
+              <Link key={page.slug} href={`/services/${page.slug}`} className="group inline-flex items-center gap-2 text-iws-blue hover:text-iws-blue-dark">
+                {page.eyebrow} <ArrowIcon />
               </Link>
             ))}
-            <Link href="/services" className="text-iws-blue hover:text-iws-blue-dark">
-              All warehousing services →
+            <Link href="/services" className="group inline-flex items-center gap-2 text-iws-blue hover:text-iws-blue-dark">
+              All warehousing services <ArrowIcon />
             </Link>
           </div>
         </div>
@@ -114,7 +115,7 @@ export default function Home() {
             />
             <ol className="mt-10 space-y-8">
               {flow.map((item) => (
-                <li key={item.step} className="flex gap-5">
+                <li key={item.step} className="reveal flex gap-5">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-iws-green/10 text-sm font-bold text-iws-green-dark">
                     {item.step}
                   </span>
@@ -163,9 +164,9 @@ export default function Home() {
             />
             <Link
               href="/locations"
-              className="shrink-0 text-sm font-semibold text-iws-blue hover:text-iws-blue-dark"
+              className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-iws-blue hover:text-iws-blue-dark"
             >
-              View all locations →
+              View all locations <ArrowIcon />
             </Link>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -187,7 +188,7 @@ export default function Home() {
           />
           <Link
             href="/careers"
-            className="mt-8 inline-block rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-iws-charcoal shadow-sm transition-colors hover:bg-white/90"
+            className="mt-8 inline-block rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-iws-charcoal shadow-sm btn-soft hover:bg-white/90"
           >
             View Careers at {siteConfig.name}
           </Link>

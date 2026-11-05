@@ -46,3 +46,206 @@ body {
     padding-inline: 2.5rem;
   }
 }
+
+/* ------------------------------------------------------------------
+   Motion
+   Quiet, slow-settling motion: short distances, long ease-out curves.
+   Everything here is opt-in via prefers-reduced-motion, and every
+   effect degrades to "content simply visible" when unsupported.
+------------------------------------------------------------------- */
+
+:root {
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-hover: 300ms;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-iws-green);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-iws-green) 18%, transparent);
+}
+
+/* Uses `translate` (not `transform`) so it never fights hover transforms. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes header-lift {
+  to {
+    box-shadow: 0 1px 0 rgb(43 38 32 / 0.04), 0 8px 24px -12px rgb(43 38 32 / 0.18);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero entrance: children of .hero-rise fade up in sequence on load. */
+  .hero-rise > * {
+    animation: rise 900ms var(--ease-out-soft) both;
+  }
+  .hero-rise > *:nth-child(2) { animation-delay: 90ms; }
+  .hero-rise > *:nth-child(3) { animation-delay: 180ms; }
+  .hero-rise > *:nth-child(4) { animation-delay: 270ms; }
+
+  /* Hero background image slowly settles into place. */
+  .hero-settle {
+    animation: settle 2.4s var(--ease-out-soft) both;
+  }
+
+  /* Scroll reveal: content eases up as it enters the viewport.
+     Pure CSS (scroll-driven animations); browsers without support
+     just show the content. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+
+  /* Header gains a soft shadow once the page scrolls. */
+  @supports (animation-timeline: scroll()) {
+    .header-scroll {
+      animation: header-lift linear both;
+      animation-timeline: scroll();
+      animation-range: 0 120px;
+    }
+  }
+
+  /* Smooth open/close for FAQ <details> where supported. */
+  .faq-item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 400ms var(--ease-out-soft),
+      content-visibility 400ms allow-discrete;
+  }
+  .faq-item[open]::details-content {
+    block-size: auto;
+  }
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  /* Page-to-page crossfade (React <ViewTransition> in the root layout). */
+  ::view-transition-old(.page) {
+    animation: 140ms ease-in both fade-out;
+  }
+  ::view-transition-new(.page) {
+    animation: 420ms var(--ease-out-soft) 80ms both fade-rise-in;
+  }
+}
+
+/* Keep the header pinned during page transitions. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Shared hover treatment for cards: a gentle lift and warmer border. */
+.card-lift {
+  transition:
+    transform var(--duration-hover) var(--ease-out-soft),
+    box-shadow var(--duration-hover) var(--ease-out-soft),
+    border-color var(--duration-hover) var(--ease-out-soft);
+}
+.card-lift:hover {
+  border-color: color-mix(in srgb, var(--color-iws-green) 28%, var(--color-iws-border));
+  box-shadow: 0 1px 2px rgb(43 38 32 / 0.04), 0 16px 32px -16px rgb(43 38 32 / 0.22);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card-lift:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Arrow icon (components/ArrowIcon.tsx): chevron inside a ring. When its
+   link (.group) is hovered, the ring fills with the link color and the
+   chevron turns white and nudges in its direction. */
+.arrow-circle {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+}
+.arrow-circle__ring {
+  fill: transparent;
+  transition: fill var(--duration-hover) var(--ease-out-soft);
+}
+.arrow-circle__chevron {
+  transition:
+    stroke var(--duration-hover) var(--ease-out-soft),
+    transform var(--duration-hover) var(--ease-out-soft);
+}
+.group:hover .arrow-circle__ring,
+.group:focus-visible .arrow-circle__ring {
+  fill: currentColor;
+}
+.group:hover .arrow-circle__chevron,
+.group:focus-visible .arrow-circle__chevron {
+  stroke: white;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* The chevron sits in a rotated group for the external variant, so a
+     horizontal nudge in its own coordinates points the right way for both. */
+  .group:hover .arrow-circle__chevron,
+  .group:focus-visible .arrow-circle__chevron {
+    transform: translateX(30px);
+  }
+}
+
+/* Buttons: smooth color change and a soft press. */
+.btn-soft {
+  transition:
+    background-color var(--duration-hover) var(--ease-out-soft),
+    color var(--duration-hover) var(--ease-out-soft),
+    border-color var(--duration-hover) var(--ease-out-soft),
+    box-shadow var(--duration-hover) var(--ease-out-soft),
+    transform 150ms var(--ease-out-soft);
+}
+.btn-soft:hover {
+  box-shadow: 0 10px 24px -12px rgb(43 38 32 / 0.35);
+}
+.btn-soft:active {
+  transform: scale(0.98);
+}

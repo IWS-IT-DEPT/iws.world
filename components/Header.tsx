@@ -11,7 +11,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-iws-border bg-iws-cream/95 backdrop-blur supports-[backdrop-filter]:bg-iws-cream/80">
+    <header
+      style={{ viewTransitionName: "site-header" }}
+      className="header-scroll sticky top-0 z-50 border-b border-iws-border bg-iws-cream/95 backdrop-blur supports-[backdrop-filter]:bg-iws-cream/80">
       <div className="container-page flex h-20 items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <Image
@@ -61,7 +63,7 @@ export default function Header() {
           </a>
           <Link
             href="/contact"
-            className="rounded-full bg-iws-green px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-iws-green-dark"
+            className="rounded-full bg-iws-green px-5 py-2.5 text-sm font-semibold text-white shadow-sm btn-soft hover:bg-iws-green-dark"
           >
             Get a Quote
           </Link>

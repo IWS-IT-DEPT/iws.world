@@ -18,7 +18,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   const isCenter = align === "center";
   return (
-    <div className={`max-w-2xl ${isCenter ? "mx-auto text-center" : ""}`}>
+    <div className={`max-w-2xl ${isCenter ? "mx-auto text-center" : ""} ${Heading === "h2" ? "reveal" : ""}`}>
       {eyebrow && (
         <p
           className={`mb-3 text-sm font-semibold uppercase tracking-wider ${

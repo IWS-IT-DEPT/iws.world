@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/Header";
@@ -71,7 +72,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-iws-cream font-sans text-iws-charcoal">
         <StructuredData data={organizationJsonLd()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          {/* Soft crossfade between pages; styled by .page in globals.css */}
+          <ViewTransition default="page">{children}</ViewTransition>
+        </main>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-DDQPSFM1Q0" />

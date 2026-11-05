@@ -27,12 +27,12 @@ export default function ServicesPage() {
             alt="Crated freight staged on a flatbed trailer inside an IWS warehouse"
             fill
             priority
-            className="object-cover opacity-30"
+            className="hero-settle object-cover opacity-30"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-iws-charcoal via-iws-charcoal/90 to-iws-charcoal/60" />
         </div>
-        <div className="container-page relative py-20 sm:py-28">
+        <div className="hero-rise container-page relative py-20 sm:py-28">
           <SectionHeading
             as="h1"
             light
@@ -62,7 +62,7 @@ export default function ServicesPage() {
                 <li key={page.slug}>
                   <Link
                     href={`/services/${page.slug}`}
-                    className="block rounded-2xl border border-iws-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                    className="block rounded-2xl border border-iws-border bg-white p-6 shadow-sm card-lift reveal"
                   >
                     <span className="text-lg font-bold text-iws-charcoal">{page.eyebrow}</span>
                     <span className="mt-2 block text-sm text-iws-charcoal/70">{page.metaDescription}</span>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 <li key={area.slug}>
                   <Link
                     href={`/locations/${area.slug}`}
-                    className="block rounded-2xl border border-iws-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                    className="block rounded-2xl border border-iws-border bg-white p-6 shadow-sm card-lift reveal"
                   >
                     <span className="text-lg font-bold text-iws-charcoal">Warehousing in {area.shortName}</span>
                     <span className="mt-2 block text-sm text-iws-charcoal/70">{area.summary}</span>

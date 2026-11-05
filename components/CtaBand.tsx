@@ -18,13 +18,13 @@ export default function CtaBand({
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
           <Link
             href="/contact"
-            className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-iws-blue-dark shadow-sm transition-colors hover:bg-white/90"
+            className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-iws-blue-dark shadow-sm btn-soft hover:bg-white/90"
           >
             Get a Quote
           </Link>
           <a
             href={siteConfig.phoneHref}
-            className="rounded-full border border-white/30 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            className="rounded-full border border-white/30 px-6 py-3 text-center text-sm font-semibold text-white btn-soft hover:bg-white/10"
           >
             Call {siteConfig.phone}
           </a>

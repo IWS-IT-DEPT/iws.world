@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ArrowIcon from "@/components/ArrowIcon";
 import type { ReactNode } from "react";
 import CtaBand from "@/components/CtaBand";
 import SectionHeading from "@/components/SectionHeading";
@@ -40,12 +41,12 @@ export default function LandingPageView({
             alt={page.image.alt}
             fill
             priority
-            className="object-cover opacity-30"
+            className="hero-settle object-cover opacity-30"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-iws-charcoal via-iws-charcoal/90 to-iws-charcoal/60" />
         </div>
-        <div className="container-page relative py-20 sm:py-28">
+        <div className="hero-rise container-page relative py-20 sm:py-28">
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
             <ol className="flex flex-wrap items-center gap-2">
               {breadcrumbs.map((crumb, i) => (
@@ -68,13 +69,13 @@ export default function LandingPageView({
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="rounded-full bg-iws-green px-7 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-iws-green-dark"
+              className="rounded-full bg-iws-green px-7 py-3.5 text-center text-sm font-semibold text-white shadow-sm btn-soft hover:bg-iws-green-dark"
             >
               Get a Quote
             </Link>
             <a
               href={siteConfig.phoneHref}
-              className="rounded-full border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="rounded-full border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-white btn-soft hover:bg-white/10"
             >
               Call {siteConfig.phone}
             </a>
@@ -94,7 +95,7 @@ export default function LandingPageView({
             {section.items && (
               <div className="mt-10 grid gap-6 sm:grid-cols-2">
                 {section.items.map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-iws-border bg-white p-7 shadow-sm">
+                  <div key={item.title} className="card-lift reveal rounded-2xl border border-iws-border bg-white p-7 shadow-sm">
                     <h3 className="text-lg font-bold text-iws-charcoal">{item.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-iws-charcoal/70">{item.text}</p>
                   </div>
@@ -113,10 +114,10 @@ export default function LandingPageView({
             <SectionHeading title="Frequently asked questions" />
             <div className="mt-8 divide-y divide-iws-border rounded-2xl border border-iws-border bg-white">
               {page.faqs.map((faq) => (
-                <details key={faq.q} className="group p-6">
+                <details key={faq.q} className="faq-item group p-6">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-iws-charcoal">
                     <h3>{faq.q}</h3>
-                    <span aria-hidden="true" className="text-iws-green-dark transition-transform group-open:rotate-45">
+                    <span aria-hidden="true" className="text-iws-green-dark transition-transform duration-300 ease-out group-open:rotate-45">
                       +
                     </span>
                   </summary>
@@ -132,9 +133,9 @@ export default function LandingPageView({
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block rounded-2xl border border-iws-border bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                    className="group block rounded-2xl border border-iws-border bg-white p-5 shadow-sm card-lift reveal"
                   >
-                    <span className="font-semibold text-iws-blue">{link.label} →</span>
+                    <span className="inline-flex items-center gap-2 font-semibold text-iws-blue">{link.label} <ArrowIcon /></span>
                     <span className="mt-1 block text-sm text-iws-charcoal/70">{link.description}</span>
                   </Link>
                 </li>

@@ -20,7 +20,7 @@ export default function LocationsPage() {
     <>
       <StructuredData data={locationsJsonLd()} />
       <section className="border-b border-iws-border bg-iws-sand py-20 sm:py-28">
-        <div className="container-page">
+        <div className="hero-rise container-page">
           <SectionHeading
             as="h1"
             eyebrow="Locations"

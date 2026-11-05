@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArrowIcon from "@/components/ArrowIcon";
 import { locations } from "@/lib/data";
 import type { ServiceArea } from "@/lib/seo-pages";
 
@@ -7,7 +8,7 @@ export default function ServiceAreaCard({ area }: { area: ServiceArea }) {
   return (
     <Link
       href={`/locations/${area.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-iws-border bg-white p-7 shadow-sm transition-shadow hover:shadow-md"
+      className="group flex h-full flex-col rounded-2xl border border-iws-border bg-white p-7 shadow-sm card-lift reveal"
     >
       <p className="text-xs font-semibold uppercase tracking-wide text-iws-green-dark">
         {facilities.length} {facilities.length > 1 ? "facilities" : "facility"}
@@ -23,8 +24,8 @@ export default function ServiceAreaCard({ area }: { area: ServiceArea }) {
           </li>
         ))}
       </ul>
-      <span className="mt-5 border-t border-iws-border pt-5 text-sm font-semibold text-iws-blue group-hover:text-iws-blue-dark">
-        {area.city} warehousing services →
+      <span className="mt-5 flex items-center gap-2 border-t border-iws-border pt-5 text-sm font-semibold text-iws-blue group-hover:text-iws-blue-dark">
+        {area.city} warehousing services <ArrowIcon />
       </span>
     </Link>
   );

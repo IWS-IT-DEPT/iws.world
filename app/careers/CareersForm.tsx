@@ -136,7 +136,7 @@ export default function CareersForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-full bg-iws-green px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-iws-green-dark disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-full bg-iws-green px-6 py-3.5 text-sm font-semibold text-white shadow-sm btn-soft hover:bg-iws-green-dark disabled:opacity-60 sm:w-auto"
       >
         {pending ? "Submitting…" : "Submit Application"}
       </button>
