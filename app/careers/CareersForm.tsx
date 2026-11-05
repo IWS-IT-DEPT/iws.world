@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 import { submitCareersForm } from "./actions";
 import { initialFormState } from "@/lib/form-state";
 import { locations } from "@/lib/data";
@@ -10,6 +11,12 @@ export default function CareersForm() {
     submitCareersForm,
     initialFormState
   );
+
+  useEffect(() => {
+    if (state.status === "success") {
+      sendGAEvent("event", "job_application", { form: "careers" });
+    }
+  }, [state]);
 
   if (state.status === "success") {
     return (

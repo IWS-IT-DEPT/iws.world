@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 import { submitContactForm } from "./actions";
 import { initialFormState } from "@/lib/form-state";
 
@@ -9,6 +10,12 @@ export default function ContactForm() {
     submitContactForm,
     initialFormState
   );
+
+  useEffect(() => {
+    if (state.status === "success") {
+      sendGAEvent("event", "generate_lead", { form: "contact" });
+    }
+  }, [state]);
 
   if (state.status === "success") {
     return (
