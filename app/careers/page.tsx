@@ -25,7 +25,7 @@ const reasons = [
   {
     title: "Room to grow",
     description:
-      "With facilities across three states and an in-house trucking company, there are paths to grow beyond your first role at IWS.",
+      "With facilities across three states and roles across warehouse, logistics, and Foreign Trade Zone operations, there are paths to grow beyond your first role at IWS.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function CareersPage() {
             light
             eyebrow="Careers"
             title="Join the team keeping industry moving"
-            description="From our warehouse floors to our trucks, IWS people are the reason freight moves on schedule. We're always glad to hear from reliable, hands-on people."
+            description="From the warehouse floor to the loading dock, IWS people are the reason freight moves on schedule. We're always glad to hear from reliable, hands-on people."
           />
         </div>
       </section>
