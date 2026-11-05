@@ -9,7 +9,6 @@ export const siteConfig = {
   // Must match the primary domain Vercel serves (apex 308s to www), or
   // canonical tags/sitemap point Google at a redirect.
   url: "https://www.iws.world",
-  rollingGreenUrl: "https://rollinggreentransportation.com",
 };
 
 export type Location = {
@@ -122,9 +121,9 @@ export const services: Service[] = [
   {
     id: "transportation",
     title: "Transportation & Drayage",
-    summary: "In-house trucking through our sister company, plus a trusted third-party carrier network.",
+    summary: "Drayage and delivery between ports, warehouses, and production sites through a vetted carrier network.",
     description:
-      "Rolling Green Transportation, our sister trucking company, provides dedicated drayage and delivery between ports, our warehouses, and manufacturing sites. We supplement that capacity with vetted third-party carriers to keep freight moving on schedule.",
+      "We coordinate drayage and delivery between ports, our warehouses, and manufacturing sites through a network of vetted trucking partners, keeping freight moving on schedule without you having to manage carriers yourself.",
   },
   {
     id: "manufacturing-integration",

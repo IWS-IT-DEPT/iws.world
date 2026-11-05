@@ -21,12 +21,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Warehousing & Foreign Trade Zone Services`,
+    default: `International Warehouse & Shipping (IWS) | Industrial Warehousing Services`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "IWS provides full-service warehousing and Foreign Trade Zone services for industrial and manufacturing clients, with facilities in Mobile, AL, Pensacola, FL, and Houston, TX.",
+    "International Warehouse & Shipping (IWS) provides industrial and manufacturing warehousing services, Foreign Trade Zone storage, and port logistics from facilities in Mobile, AL, Pensacola, FL, and Houston, TX.",
   keywords: [
+    "international warehouse",
+    "International Warehouse & Shipping",
+    "warehousing services",
+    "manufacturing warehousing",
     "warehousing",
     "Foreign Trade Zone",
     "FTZ services",
@@ -42,7 +46,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${siteConfig.name} | Warehousing & Foreign Trade Zone Services`,
+    title: `International Warehouse & Shipping (IWS) | Industrial Warehousing Services`,
     description:
       "Full-service warehousing, Foreign Trade Zone services, and integrated logistics for industrial and manufacturing clients across the Gulf Coast.",
     url: siteConfig.url,
@@ -52,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Warehousing & Foreign Trade Zone Services`,
+    title: `International Warehouse & Shipping (IWS) | Industrial Warehousing Services`,
     description:
       "Full-service warehousing, Foreign Trade Zone services, and integrated logistics for industrial and manufacturing clients across the Gulf Coast.",
   },

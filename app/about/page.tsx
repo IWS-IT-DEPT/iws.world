@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CtaBand from "@/components/CtaBand";
 import SectionHeading from "@/components/SectionHeading";
-import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -25,7 +24,7 @@ const pillars = [
   {
     title: "Integrated transportation",
     description:
-      "Through our sister company, Rolling Green Transportation, plus a network of trusted third-party carriers, we move freight from port to warehouse to production line without handing it off to someone else's timeline.",
+      "Through a network of trusted trucking partners, we coordinate freight from port to warehouse to production line, so you have one point of contact instead of a chain of separate vendors.",
   },
   {
     title: "Built into your process",
@@ -40,6 +39,7 @@ export default function AboutPage() {
       <section className="border-b border-iws-border bg-iws-sand py-20 sm:py-28">
         <div className="container-page">
           <SectionHeading
+            as="h1"
             eyebrow="About IWS"
             title="A full-service warehousing partner for industrial supply chains"
             description="International Warehouse & Shipping (IWS) stores, manages, and moves materials for large industrial and manufacturing clients — connecting ports, warehouses, and production floors across the Gulf Coast."
@@ -64,9 +64,8 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-iws-charcoal/70">
               We work directly with ports to receive raw materials, store
-              them securely, and deliver them into production — using our
-              own trucking capability alongside a trusted third-party
-              carrier network. When production is finished, we store and
+              them securely, and deliver them into production through a
+              trusted network of trucking partners. When production is finished, we store and
               distribute the finished goods too.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-iws-charcoal/70">
@@ -99,50 +98,6 @@ export default function AboutPage() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="container-page">
-          <div className="rounded-3xl border border-iws-border bg-white p-10 sm:p-14">
-            <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr]">
-              <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-iws-green/10">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  className="h-12 w-12 text-iws-green-dark"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 16V7a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v9M3 16h11M3 16a2 2 0 1 0 4 0M14 16a2 2 0 1 0 4 0M14 10h4l3 3v3h-2M14 10v6"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-iws-charcoal">
-                  Sister company: Rolling Green Transportation
-                </h2>
-                <p className="mt-3 max-w-2xl text-iws-charcoal/70">
-                  Rolling Green Transportation is our sister trucking
-                  company, providing dedicated drayage and delivery between
-                  ports, our warehouses, and manufacturing sites — giving
-                  IWS clients transportation capacity built into the same
-                  network as their storage.
-                </p>
-                <a
-                  href={siteConfig.rollingGreenUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-block text-sm font-semibold text-iws-blue hover:text-iws-blue-dark"
-                >
-                  Visit rollinggreentransportation.com ↗
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

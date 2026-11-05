@@ -46,6 +46,7 @@ export default function CareersPage() {
         </div>
         <div className="container-page relative py-20 sm:py-28">
           <SectionHeading
+            as="h1"
             light
             eyebrow="Careers"
             title="Join the team keeping industry moving"

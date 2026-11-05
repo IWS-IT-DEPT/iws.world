@@ -4,6 +4,8 @@ type SectionHeadingProps = {
   description?: string;
   align?: "left" | "center";
   light?: boolean;
+  /** Use "h1" for the main heading of a page (one per page, for SEO). */
+  as?: "h1" | "h2";
 };
 
 export default function SectionHeading({
@@ -12,6 +14,7 @@ export default function SectionHeading({
   description,
   align = "left",
   light = false,
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   const isCenter = align === "center";
   return (
@@ -25,13 +28,13 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2
+      <Heading
         className={`text-3xl font-bold tracking-tight sm:text-4xl ${
           light ? "text-white" : "text-iws-charcoal"
         }`}
       >
         {title}
-      </h2>
+      </Heading>
       {description && (
         <p
           className={`mt-4 text-lg leading-relaxed ${

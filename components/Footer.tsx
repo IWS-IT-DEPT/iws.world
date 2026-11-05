@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { locations, mapHref, navLinks, siteConfig } from "@/lib/data";
+import { navLinks, siteConfig } from "@/lib/data";
+import { serviceAreas, servicePages } from "@/lib/seo-pages";
 
 export default function Footer() {
   return (
@@ -34,35 +35,26 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={siteConfig.rollingGreenUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white"
-              >
-                Rolling Green Transportation ↗
-              </a>
-            </li>
           </ul>
         </div>
 
         <div>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white">
-            Locations
+            Warehousing
           </h3>
           <ul className="space-y-2.5 text-sm text-white/60">
-            {locations.map((loc) => (
-              <li key={loc.id}>
-                <a
-                  href={mapHref(loc.mapQuery)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white"
-                >
-                  {loc.city}, {loc.state}
-                </a>{" "}
-                <span className="text-white/40">— {loc.label}</span>
+            {serviceAreas.map((area) => (
+              <li key={area.slug}>
+                <Link href={`/locations/${area.slug}`} className="hover:text-white">
+                  {area.shortName} warehousing
+                </Link>
+              </li>
+            ))}
+            {servicePages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/services/${page.slug}`} className="hover:text-white">
+                  {page.eyebrow}
+                </Link>
               </li>
             ))}
           </ul>

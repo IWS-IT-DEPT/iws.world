@@ -16,6 +16,7 @@ export default function ContactPage() {
       <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.1fr]">
         <div>
           <SectionHeading
+            as="h1"
             eyebrow="Contact us"
             title="Get a quote or ask us anything"
             description="Tell us about your storage, FTZ, or logistics needs and we'll get back to you quickly."

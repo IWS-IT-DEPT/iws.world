@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
-import LocationCard from "@/components/LocationCard";
+import ServiceAreaCard from "@/components/ServiceAreaCard";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
-import { locations, services, siteConfig } from "@/lib/data";
+import { services, siteConfig } from "@/lib/data";
+import { serviceAreas, servicePages } from "@/lib/seo-pages";
 
 const flow = [
   {
@@ -23,7 +24,7 @@ const flow = [
     step: "03",
     title: "Integrated delivery",
     description:
-      "Rolling Green Transportation, our sister trucking company, and trusted third-party carriers move freight to your production line on schedule.",
+      "Our trusted trucking partners move freight from our warehouses to your production line on schedule.",
   },
   {
     step: "04",
@@ -50,16 +51,16 @@ export default function Home() {
         </div>
         <div className="container-page relative py-28 sm:py-36">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-iws-green">
-            Warehousing &middot; Foreign Trade Zone &middot; Logistics
+            International Warehouse &amp; Shipping
           </p>
           <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Full-service warehousing built for industrial supply chains.
+            Industrial &amp; manufacturing warehousing services on the Gulf Coast.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            IWS stores, manages, and moves raw materials, components, and
-            finished goods for large industrial and manufacturing clients —
-            with Foreign Trade Zone capabilities and facilities in Mobile,
-            AL, Pensacola, FL, and Houston, TX.
+            International Warehouse &amp; Shipping (IWS) stores, manages, and
+            moves raw materials, components, and finished goods for industrial
+            and manufacturing clients, with Foreign Trade Zone warehousing and
+            facilities in Mobile, AL, Pensacola, FL, and Houston, TX.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
@@ -82,13 +83,23 @@ export default function Home() {
         <div className="container-page">
           <SectionHeading
             eyebrow="What we do"
-            title="Warehousing, FTZ, and logistics under one roof"
+            title="Warehousing services, FTZ, and logistics under one roof"
             description="From port to production floor to finished goods, IWS handles the storage and movement in between."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.id} service={service} />
             ))}
+          </div>
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
+            {servicePages.map((page) => (
+              <Link key={page.slug} href={`/services/${page.slug}`} className="text-iws-blue hover:text-iws-blue-dark">
+                {page.eyebrow} →
+              </Link>
+            ))}
+            <Link href="/services" className="text-iws-blue hover:text-iws-blue-dark">
+              All warehousing services →
+            </Link>
           </div>
         </div>
       </section>
@@ -147,8 +158,8 @@ export default function Home() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="Where we are"
-              title="Facilities across the Gulf Coast"
-              description="Six facilities across three states, positioned near the ports and manufacturers we serve."
+              title="Warehouse service areas across the Gulf Coast"
+              description="Six facilities across three states, positioned near the ports and industrial hubs we serve."
             />
             <Link
               href="/locations"
@@ -158,8 +169,8 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {locations.map((location) => (
-              <LocationCard key={location.id} location={location} />
+            {serviceAreas.map((area) => (
+              <ServiceAreaCard key={area.slug} area={area} />
             ))}
           </div>
         </div>
