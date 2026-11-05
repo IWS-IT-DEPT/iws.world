@@ -88,7 +88,7 @@ async function gaReport({ dimensions = [], metrics, limit = 25, filter, orderBy 
   for (const row of data.rows ?? []) {
     const dims = row.dimensionValues.map((d) => d.value);
     const range = dims.pop();
-    const key = dims.join(" / ") || "total";
+    const key = dims.length ? dims.join(" / ") || "(empty)" : "total";
     const entry = rows.get(key) ?? { key, dims, cur: {}, prev: {} };
     metrics.forEach((m, i) => (entry[range][m] = Number(row.metricValues[i].value)));
     rows.set(key, entry);

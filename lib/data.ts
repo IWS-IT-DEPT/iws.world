@@ -6,7 +6,9 @@ export const siteConfig = {
   phoneHref: "tel:+12517213625",
   salesEmail: "sales@iws.world",
   hrEmail: "hr@iws.world",
-  url: "https://iws.world",
+  // Must match the primary domain Vercel serves (apex 308s to www), or
+  // canonical tags/sitemap point Google at a redirect.
+  url: "https://www.iws.world",
   rollingGreenUrl: "https://rollinggreentransportation.com",
 };
 

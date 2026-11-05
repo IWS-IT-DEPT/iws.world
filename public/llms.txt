@@ -27,13 +27,13 @@ IWS stores, manages, and moves raw materials, components, and finished goods for
 - Phone: (251) 721-3625
 - Sales / quote requests: sales@iws.world
 - Careers / HR: hr@iws.world
-- Website: https://iws.world
+- Website: https://www.iws.world
 
 ## Pages
 
-- [Home](https://iws.world/): overview of IWS and its services.
-- [About](https://iws.world/about): company background and capabilities.
-- [Services](https://iws.world/services): full list of warehousing, FTZ, and logistics services.
-- [Locations](https://iws.world/locations): all six facility addresses.
-- [Careers](https://iws.world/careers): open application form for warehouse and logistics roles.
-- [Contact](https://iws.world/contact): quote requests and general inquiries.
+- [Home](https://www.iws.world/): overview of IWS and its services.
+- [About](https://www.iws.world/about): company background and capabilities.
+- [Services](https://www.iws.world/services): full list of warehousing, FTZ, and logistics services.
+- [Locations](https://www.iws.world/locations): all six facility addresses.
+- [Careers](https://www.iws.world/careers): open application form for warehouse and logistics roles.
+- [Contact](https://www.iws.world/contact): quote requests and general inquiries.
